@@ -64,6 +64,16 @@ map.on("click", async (e) =>
       <strong>🌧️ Rainfall:</strong> ${riskData.rainfall}mm<br>
       <strong>⚠️ Risk Level:</strong> ${riskData.predicted_risk}
     `;
+      
+  const audio = new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_5b2b43.mp3");
+  audio.play();
+
+  document.body.style.transition = "background 0.3s ease";
+  document.body.style.background = "#fff2b2"; // light yellow flash
+  setTimeout(() => {
+  document.body.style.background = "#f2f2f2"; // back to normal
+}, 300);
+  
 
     L.marker([lat, lng]).addTo(map).bindPopup(`Risk: ${riskData.predicted_risk}`).openPopup();
   } catch (err) {
