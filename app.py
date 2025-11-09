@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-from transformers import pipeline 
+from transformers import pipeline
 from PIL import Image
 from io import BytesIO
 import requests
@@ -16,11 +16,11 @@ def home():
     return render_template("index.html")
 
 @app.route("/resqforce")
-def resqforce_dashboard():
+def resqforce():
     return render_template("resqforce.html")
 
 @app.route("/tmobile")
-def tmobile_dashboard():
+def tmobile():
     return render_template("tmobile.html")
 
 @app.route("/analyze-text", methods=["POST"])
@@ -50,12 +50,6 @@ def predict_risk():
     elif rainfall > 5:
         risk = "MEDIUM"
     return jsonify({"location": [lat, lon], "rainfall": rainfall, "predicted_risk": risk})
-
-@app.route("/tmobile-sentiment", methods=["POST"])
-def tmobile_sentiment():
-    text = request.json["text"]
-    result = text_classifier(text)[0]
-    return jsonify({"label": result["label"], "score": round(result["score"], 3)})
 
 if __name__ == "__main__":
     app.run(debug=True)
