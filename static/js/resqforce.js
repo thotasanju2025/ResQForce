@@ -72,6 +72,48 @@ map.on("click", async (e) => {
   }
 });
 
+const dropzone = document.getElementById("image-dropzone");
+const imageFileInput = document.getElementById("image_file");
+let uploadedImage = null;
+
+dropzone.addEventListener("click", () => {
+  imageFileInput.click();
+});
+
+imageFileInput.addEventListener("change", (e) => {
+  uploadedImage = e.target.files[0];
+  dropzone.textContent = uploadedImage.name;
+});
+
+dropzone.addEventListener("dragover", (e) => {
+  e.preventDefault();
+  dropzone.classList.add("dragover");
+});
+
+dropzone.addEventListener("dragleave", () => {
+  dropzone.classList.remove("dragover");
+});
+
+dropzone.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropzone.classList.remove("dragover");
+  uploadedImage = e.dataTransfer.files[0];
+  dropzone.textContent = uploadedImage.name;
+});
+
+let imageData = {};
+if (uploadedImage) {
+    const formData = new FormData();
+    formData.append("image_file", uploadedImage);
+
+    const imgRes = await fetch("/analyze-image-file", {
+        method: "POST",
+        body: formData
+    });
+    imageData = await imgRes.json();
+}
+
+
 const panel = document.getElementById("panel");
 const reportBox = document.getElementById("report");
 
