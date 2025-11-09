@@ -71,3 +71,17 @@ map.on("click", async (e) =>
     console.error(err);
   }
   });
+
+const panel = document.getElementById("panel");
+const reportBox = document.getElementById("report");
+
+reportBox.addEventListener("focus", () => {
+  panel.classList.add("active");
+});
+
+document.addEventListener("click", (e) => {
+  if (!panel.contains(e.target)) {
+    panel.classList.remove("active");
+  }
+});
+
