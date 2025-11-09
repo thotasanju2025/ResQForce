@@ -3,6 +3,7 @@ from transformers import pipeline
 from PIL import Image
 from io import BytesIO
 import requests
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -37,6 +38,16 @@ def analyze_image():
     image = Image.open(BytesIO(response.content))
     result = image_classifier(image)[0]
     return jsonify({"label": result["label"], "score": round(result["score"], 3)})
+
+@app.route("/analyze-image-file", methods=["POST"])
+def analyze_image_file():
+    file = request.files["image_file"]
+    image = Image.open(file.stream)
+    result = image_classifier(image)[0]
+    return jsonify({
+        "label": result["label"],
+        "score": round(result["score"], 3)
+    })    
 
 @app.route("/predict-risk", methods=["GET"])
 def predict_risk():
