@@ -1,5 +1,5 @@
 Flask==2.3.3
-torch==2.2.1
+torch==2.2.2
 torchvision==0.17.2
 transformers==4.37.2
 gunicorn
