@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ResQForce</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-</head>  
+</head>
+
 <body>
   <div id="app">
     <div id="map"></div>
     <div id="panel">
       <h2>ResQForce</h2>
-      <textarea id="report" placeholder="Describe the situation..."></textarea>
-      <input type="text" id="image_url" placeholder="Image URL (optional)">
+      <textarea id="report" placeholder="Describe the situation..." rows="3"></textarea>
+      <input type="text" id="image_url" placeholder="Paste image link (optional)">
+      <button id="sendReport">Send Report</button>
       <div id="result"></div>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
-</html>  
-  
+</html>
