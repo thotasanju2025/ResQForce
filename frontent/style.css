@@ -12,20 +12,17 @@ html, body {
   overflow: hidden;
 }
 
-
 #app {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-
 #map {
   flex: 1;
   width: 100%;
   z-index: 0;
 }
-
 
 #panel {
   position: absolute;
@@ -42,7 +39,7 @@ html, body {
 }
 
 #panel.active {
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
 }
 
 #panel h2 {
@@ -51,7 +48,6 @@ html, body {
   color: #ff4b4b;
   margin-bottom: 10px;
 }
-
 
 textarea, input {
   width: 100%;
@@ -68,8 +64,7 @@ textarea:focus, input:focus {
   border-color: #ff4b4b;
 }
 
-
-#sendReport {
+button {
   width: 100%;
   background: #ff4b4b;
   color: #fff;
@@ -81,10 +76,9 @@ textarea:focus, input:focus {
   transition: background 0.3s ease;
 }
 
-#sendReport:hover {
+button:hover {
   background: #e33b3b;
 }
-
 
 #result {
   margin-top: 10px;
@@ -96,7 +90,6 @@ textarea:focus, input:focus {
   max-height: 120px;
   overflow-y: auto;
 }
-
 
 @media (max-width: 600px) {
   #panel {
