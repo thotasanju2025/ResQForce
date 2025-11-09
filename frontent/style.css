@@ -1,80 +1,107 @@
-body
-{
+
+* {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #f2f2f2;
+  overflow: hidden;
+}
+
+
+#app {
   display: flex;
+  flex-direction: column;
   height: 100vh;
 }
 
-#app
-{
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
 
-#map
-{
-  flex: 2;
-  height: 100%;
-}
-
-#panel
-{
+#map {
   flex: 1;
-  background-color: #1f2833;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+  width: 100%;
+  z-index: 0;
 }
 
-h2
-{
-  color: #66fcf1;
+
+#panel {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+#panel h2 {
   text-align: center;
+  font-size: 1.4em;
+  color: #ff4b4b;
+  margin-bottom: 10px;
 }
 
-textarea, input
-{
-  widht: 100%;
-  padding: 10px;
+
+textarea, input {
+  width: 100%;
+  border: 1px solid #ccc;
   border-radius: 10px;
-  border: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1em;
   outline: none;
-  resize: none;
+  transition: border-color 0.2s ease;
 }
 
-textarea
-{
-  height: 120px;
+textarea:focus, input:focus {
+  border-color: #ff4b4b;
 }
 
-button
-{
-  padding: 10px;
+
+#sendReport {
+  width: 100%;
+  background: #ff4b4b;
+  color: #fff;
   border: none;
-  background-color: #45a29e;
-  color: white;
-  border-radius: 8px;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1em;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s ease;
 }
 
-button:hover
-{
-  background-color: #66fcf1;
-  color: #0b0c10;
+#sendReport:hover {
+  background: #e33b3b;
 }
 
-#result
-{
-  background-color: #0b0c10;
+
+#result {
+  margin-top: 10px;
+  background: #f9f9f9;
   border-radius: 10px;
   padding: 10px;
-  height: 100px;
+  font-size: 0.95em;
+  color: #333;
+  max-height: 120px;
   overflow-y: auto;
-  border: 1 px solid #45a29e;
+}
+
+
+@media (max-width: 600px) {
+  #panel {
+    padding: 15px;
+  }
+  #panel h2 {
+    font-size: 1.2em;
+  }
+  textarea, input {
+    font-size: 0.9em;
+  }
 }
