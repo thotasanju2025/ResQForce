@@ -63,6 +63,21 @@ textarea, input {
 textarea:focus, input:focus {
   border-color: #ff4b4b;
 }
+#image-dropzone {
+  width: 100%;
+  border: 2px dashed #ff4b4b;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  color: #ff4b4b;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background 0.2s ease;
+}
+
+#image-dropzone.dragover {
+  background: #ffe6e6;
+}
 
 #sendReport {
   width: 100%;
