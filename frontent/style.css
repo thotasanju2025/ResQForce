@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -38,7 +37,12 @@ html, body {
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
   z-index: 1000;
-  transition: transform 0.3s ease;
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#panel.active {
+  transform: translateY(-50%); 
 }
 
 #panel h2 {
@@ -98,10 +102,7 @@ textarea:focus, input:focus {
   #panel {
     padding: 15px;
   }
-  #panel h2 {
-    font-size: 1.2em;
-  }
-  textarea, input {
-    font-size: 0.9em;
+  #panel.active {
+    transform: translateY(-60%);
   }
 }
