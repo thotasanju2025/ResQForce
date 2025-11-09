@@ -9,7 +9,7 @@ app = Flask(__name__)
 text_classifier = pipeline("text-classification", model="distilbert-base-uncased-finetuned-sst-2-english")
 image_classifier = pipeline("image-classification", model="google/vit-base-patch16-224")
 
-OPENWEATHER_API = "YOUR_OPENWEATHER_API_KEY"
+OPENWEATHER_API = "f6de11094e2d691ea6d78bb2e38e4348"
 
 @app.route("/")
 def home():
