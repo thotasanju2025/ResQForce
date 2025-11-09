@@ -1,6 +1,5 @@
 Flask==2.3.3
-transformers==4.57.1
-torch==2.8.0
-torchvision==0.23.0
-Pillow==9.5.0
-requests==2.31.0
+torch==2.2.1
+torchvision==0.17.2
+transformers==4.37.2
+gunicorn
